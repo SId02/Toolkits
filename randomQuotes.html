@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>RandomQuotes</title>
+  <style>
+    body {
+      color: #000203;
+      background-color: #9d8bf8;
+    }
+
+    .container {
+      max-width: 1140px;
+      padding: 8rem;
+      margin: 8rem;
+    }
+
+    #author {
+      font-size: 1rem;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    #text {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Quotes</li>
+      <li class="breadcrumb-item"><a href="countries.html">Countries Details Finder</a></li>
+    </ol>
+  </nav>
+
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <blockquote class="blockquote text-center">
+          <p class="mb-0" id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+            ante.</p>
+          <footer class="blockquote-footer" id="author"> author </footer>
+        </blockquote>
+        <button class="btn btn-warning getQuote">Generate Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript">
+    const quotes = [
+      {
+        "quote": "Life isn’t about getting and having, it’s about giving and being.",
+        "author": "Kevin Kruse"
+      },
+      {
+        "quote": "The only way to do great work is to love what you do.",
+        "author": "Steve Jobs"
+      },
+      {
+        "quote": "Either write something worth reading or do something worth writing.",
+        "author": "Benjamin Franklin"
+      },
+      {
+        "quote": "Change your thoughts and you change your world.",
+        "author": "Norman Vincent Peale"
+      },
+      {
+        "quote": "It’s not the years in your life that count. It’s the life in your years.",
+        "author": "Abraham Lincoln"
+      },
+      {
+        "quote": "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
+        "author": "Henry Ford"
+      },
+      {
+        "quote": "Our lives begin to end the day we become silent about things that matter.",
+        "author": "Martin Luther King Jr."
+      },
+      {
+        "quote": "Remember that not getting what you want is sometimes a wonderful stroke of luck.",
+        "author": "Dalai Lama"
+      },
+      {
+        "quote": "It is never too late to be what you might have been.",
+        "author": "George Eliot"
+      },
+      {
+        "quote": "You can never cross the ocean until you have the courage to lose sight of the shore.",
+        "author": "Christopher Columbus"
+      },
+      {
+        "quote": "I didn’t fail the test. I just found 100 ways to do it wrong.",
+        "author": "Benjamin Franklin"
+      },
+      {
+        "quote": "A person who never made a mistake never tried anything new.",
+        "author": "Albert Einstein"
+      }
+
+    ]
+
+    document.querySelector(".getQuote").addEventListener('click', randomQuote);
+
+    function randomQuote() {
+      let random = quotes[Math.floor(Math.random() * quotes.length)];
+      text.innerText = `“${random.quote}.”`;
+      author.innerText = random.author;
+    } </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>ExchangeRate</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand  d-block" href="#">ExchangeRate</a>
+    <a class="navbar-brand  mx-auto d-block" href="index.html">ToolKit</a>
+    <a class="navbar-brand d-block" href="#">Using ExchangeRate Api For Currency Rates</a>
+  </nav>
+
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">ExchangeRate</li>
+      <li class="breadcrumb-item"><a href="calculator.html">Calculator</a></li>
+    </ol>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+  <div class="container p-5">
+
+    <div class="card">
+      <div class="card-header text-center">Exchange Rates</div>
+      <div class="card-body">
+        <form class="w-50 m-auto" id="form">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Currency</label>
+            <select class="form-control" id="countryCurrencyCode">
+              <option>Select Currency</option>
+              <option value="CAD">CAD</option>
+              <option value="EUR">EUR</option>
+              <option value="INR"> INR</option>
+              <option value="JPY">JPY</option>
+              <option value="RUB">RUB</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Currency</label>
+            <select class="form-control" id="CurrencyCode">
+              <option>Select Currency</option>
+              <option value="CAD">CAD</option>
+              <option value="EUR">EUR</option>
+              <option value="INR"> INR</option>
+              <option value="JPY">JPY</option>
+              <option value="RUB">RUB</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+
+
+          <div class="card-footer text-center py-3" id="currencyValueTwo"></div>
+          <button type="submit" name="button" class="btn btn-primary "> submit</button>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    "use strict";
+
+    document.querySelector("#form").onsubmit = function () {
+
+      var e = document.querySelector("#countryCurrencyCode");
+      var baseValue = e.options[e.selectedIndex].value;
+
+      let currency = document.querySelector("#CurrencyCode").value;
+
+      fetch(`https://api.exchangeratesapi.io/latest?base=${baseValue}&symbols=${currency}`)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          let contents = `1 ${baseValue} is equal to ${data.rates[currency]} ${currency}.`
+          document.querySelector("#currencyValueTwo").innerHTML = contents;
+
+          console.log(contents + "");
+        })
+        .catch(function () {
+          document.querySelector("#currencyValueTwo").innerHTML = "There is error";
+        });
+      return false;
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .app {
+      display: grid;
+      max-width: 320px;
+      height: 400px;
+      margin: calc((100vh - 400px) / 2) auto;
+      font-size: 18px;
+      grid-template: "display"80px "buttons"auto / 1fr;
+    }
+
+    .calDisplay,
+    .bttn {
+      font-size: inherit;
+      box-sizing: border-box;
+    }
+
+    .buttons {
+      display: grid;
+      height: 100%;
+      grid-template: "numbers operations"1fr / 3fr 1fr;
+    }
+
+    .numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .operations {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .calDisplay {
+      margin: 5px;
+      border-radius: 64px;
+      border: 0.75px solid #ccc;
+      background: white;
+      padding: 21px 100px;
+    }
+
+    button {
+      margin: 5px;
+      border-radius: 100%;
+      border: 0.75px solid #ccc;
+      outline: none;
+      cursor: pointer;
+      transition: background-color 100ms ease;
+    }
+
+    .numbers button {
+      background: white;
+    }
+
+    .numbers button:active {
+      background-color: #eee;
+    }
+
+    .operations button {
+      background-color: #bbdefb;
+      font-size: 24px;
+    }
+
+    .operations button:active {
+      background-color: #64b5f6;
+    }
+
+    button:focus {
+      border-color: #2196f3;
+    }
+
+    #equals {
+      background-color: #2196f3;
+      color: white;
+      font-size: 24px;
+    }
+
+    #equals:active {
+      background-color: #1976d2;
+    }
+  </style>
+  <title>Calculator</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand  d-block" href="#">Calculator</a>
+    <a class="navbar-brand  mx-auto d-block" href="index.html">ToolKit</a>
+  </nav>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><a href="#">Calculator</a></li>
+      <li class="breadcrumb-item"><a href="randomQuotes.html">Quotes</a></li>
+    </ol>
+  </nav>
+
+  <div class="app">
+    <div class="calDisplay" id="display"></div>
+    <div class="calc buttons ">
+
+      <div class="calc__actions numbers">
+        <button class="bttn action" id="clear" data-value="clear">C</button>
+        <button class="bttn action" id="backspace" data-value="backspace">CE</button>
+        <button class="bttn action" id="plusminus" data-value="plusminus">+/-</button>
+        <button class="bttn number" id="number7" data-value="7">7</button>
+        <button class="bttn number" id="number8" data-value="8">8</button>
+        <button class="bttn number" id="number9" data-value="9">9</button>
+        <button class="bttn number" id="number4" data-value="4">4</button>
+        <button class="bttn number" id="number5" data-value="5">5</button>
+        <button class="bttn number" id="number6" data-value="6">6</button>
+        <button class="bttn number" id="number1" data-value="1">1</button>
+        <button class="bttn number" id="number2" data-value="2">2</button>
+        <button class="bttn number" id="number3" data-value="3">3</button>
+        <button class="bttn number" id="number0" data-value="0">0</button>
+        <button class="bttn action" id="equals" data-value="calculate">=</button>
+        <button class="bttn action" id="decimal"></button>
+      </div>
+      <div class="operations">
+        <button class="bttn operator" id="number" data-value="-">-</button>
+        <button class="bttn operator" id="number8" data-value="+">+</button>
+        <button class="bttn operator" id="divide" data-value="/">/</button>
+        <button class="bttn operator" id="multiple" data-value="*">*</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    let display = document.getElementById("display");
+    let buttons = document.getElementsByClassName("bttn");
+
+    let operation = "";
+
+    for (let i = 0; i < buttons.length; i++) {
+      let button = buttons[i];
+
+      button.addEventListener("click", function () {
+        switch (button.classList.contains("action")) {
+          case true:
+            if (button.classList.contains("operator")) {
+              concatOperation(button);
+            } else {
+              callAction(button);
+            }
+            break;
+          case false:
+            concatOperation(button);
+            break;
+        }
+      });
+    }
+
+    function concatOperation(button) {
+      if (button.classList.contains("operator")) {
+        if (!operation) {
+          return;
+        }
+      }
+
+      operation += button.dataset.value;
+
+      display.innerHTML = operation;
+    }
+
+    function callAction(button) {
+      switch (button.dataset.value) {
+        case "calculate":
+          operation = eval(operation).toString();
+          display.innerHTML = operation;
+          break;
+        case "backspace":
+          operation = operation.slice(0, -1);
+          display.innerHTML = operation;
+          break;
+        case "clear":
+          operation = "";
+          display.innerHTML = "";
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #faebd7;
+    }
+
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+    }
+
+    :root {
+      --clrblack: #000000;
+      --clrwhite: #ffffff;
+      --clrblue: #0000ff;
+      --clrgrey: #808080;
+      --clrorange: #ffa500;
+      --clrpurple: #800080;
+      --clrred: #ff0000;
+      --clryellow: #FFFF00;
+      --clrcoral: #FF7F50;
+      --clrsilver: #C0C0C0;
+      --clrviolet: #EE82EE;
+      --clrgold: #FFD700;
+      --clraqua: #00ffff;
+      --clrblueviolet: #8a2be2;
+      --clryellowgreen: #9acd32;
+      --clrteal: #008080;
+      --clrroyalblue: #4169e1;
+      --clrplum: #dda0dd;
+      --clrorchid: #da70d6;
+      --clrolive: #808000;
+      --clrindigo: #4b0082;
+      --clrgh: #171516;
+      --clrquora: #a82400;
+      --clrreddit: #ff5700;
+      --clrblogger: #fb8f3d;
+      --clryoutube: #bb0000;
+      --clrlinkedin: #007bb6;
+      --clrtwitter: #00aced;
+      --clrst: #f58233;
+      --clrskype: #fb8f3d;
+      --clrfacebook: #4267b2;
+      --clrcodePen: #212121;
+      --clrDarkMagenta: #8B008B;
+      --clrdarkSlateBlue: #483D8B;
+      --clrAmber: #FFBF00;
+      --clrSandyBrown: #F4A460;
+
+    }
+
+    .black {
+      background-color: var(--clrblack);
+      color: #ffffff !important;
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .white {
+      background-color: var(--clrwhite);
+      color: #000000 !important;
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .blue {
+      background-color: var(--clrblue);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .grey {
+      background-color: var(--clrgrey);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .orange {
+      background-color: var(--clrorange);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .purple {
+      background-color: var(--clrpurple);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .red {
+      background-color: var(--clrred);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .yellow {
+      background-color: var(--clryellow);
+      color: #000000 !important;
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .coral {
+      background-color: var(--clrcoral);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .violet {
+      background-color: var(--clrviolet);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .silver {
+      background-color: var(--clrsilver);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .gold {
+      background-color: var(--clrgold);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .aqua {
+      background-color: var(--clraqua);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .blueviolet {
+      background-color: var(--clrblueviolet);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .yellowgreen {
+      background-color: var(--clryellowgreen);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .teal {
+      background-color: var(--clrteal);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .royalblue {
+      background-color: var(--clrroyalblue);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .plum {
+      background-color: var(--clrplum);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .orchid {
+      background-color: var(--clrorchid);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .olive {
+      background-color: var(--clrolive);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .indigo {
+      background-color: var(--clrindigo);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+
+    .DarkMagenta {
+      background-color: var(--clrDarkMagenta);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .darkSlateBlue {
+      background-color: var(--clrdarkSlateBlue);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .Amber {
+      background-color: var(--clrAmber);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .SandyBrown {
+      background-color: var(--clrSandyBrown);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    /* social media icon color*/
+    .github {
+      background-color: var(--clrgh);
+      color: #ffffff !important;
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+
+    }
+
+    .quora {
+      background-color: var(--clrquora);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .reddit {
+      background-color: var(--clrreddit);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .blogger {
+      background-color: var(--clrblogger);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .stackoverflow {
+      background-color: var(--clrst);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .youtube {
+      background-color: var(--clryoutube);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .linkedin {
+      background-color: var(--clrlinkedin);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .twitter {
+      background-color: var(--clrtwitter);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+
+    .skype {
+      background-color: var(--clrskype);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .facebook {
+      background-color: var(--clrfacebook);
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+
+    .codePen {
+      background-color: var(--clrcodePen);
+      color: #ffffff !important;
+      max-width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 30px;
+    }
+  </style>
+  <title>colorPicker</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand  d-block" href="#">Color Picker</a>
+    <a class="navbar-brand  mx-auto d-block" href="index.html">ToolKit</a>
+    <a class="navbar-brand d-block" href="#">Click to Copy to Clipboard</a>
+  </nav>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">ColorPicker</li>
+      <li class="breadcrumb-item"><a href="exchangeRate.html">Exchange Rate</a></li>
+    </ol>
+  </nav>
+  <h3 class="p-2">HTML COLORS <span id="bclr"></span></h3>
+  <div class="container  p-5">
+    <div class="row ">
+      <div class=" col-lg-2 p-3 m-2  text-center black rounded-lg" onclick="copyToClipboard('.black')">#000000
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center white rounded-lg" onclick="copyToClipboard('.white')">#FFFFFF
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center blue rounded-lg" onclick="copyToClipboard('.blue')">#0000F</div>
+      <div class=" col-lg-2 p-3 m-2  text-center grey rounded-lg" onclick="copyToClipboard('.grey')">#80808</div>
+      <div class=" col-lg-2 p-3 m-2  text-center orange rounded-lg" onclick="copyToClipboard('.orange')">#FFA500
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center purple rounded-lg" onclick="copyToClipboard('.purple')">#800080
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center red rounded-lg" onclick="copyToClipboard('.red')">#ff0000</div>
+      <div class=" col-lg-2 p-3 m-2  text-center yellow rounded-lg" onclick="copyToClipboard('.yellow')">#FFFF00
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center coral rounded-lg" onclick="copyToClipboard('.coral')">#FF7F50
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center silver rounded-lg" onclick="copyToClipboard('.silver')">#C0C0C0
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center violet rounded-lg" onclick="copyToClipboard('.violet')">#EE82E
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center gold rounded-lg" onclick="copyToClipboard('.gold')">#FFD700</div>
+      <div class=" col-lg-2 p-3 m-2  text-center aqua rounded-lg " onclick="copyToClipboard('.aqua')">#00ffff
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center blueviolet rounded-lg " onclick="copyToClipboard('.blueviolet')">
+        #8a2be2</div>
+      <div class=" col-lg-2 p-3 m-2  text-center yellowgreen rounded-lg " onclick="copyToClipboard('.yellowgreen')">
+        #9acd32</div>
+      <div class=" col-lg-2 p-3 m-2  text-center teal rounded-lg " onclick="copyToClipboard('.teal')">#008080
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center  royalblue rounded-lg " onclick="copyToClipboard('.royalblue')">
+        #4169e1</div>
+      <div class=" col-lg-2 p-3 m-2  text-center plum rounded-lg " onclick="copyToClipboard('.plum')">#dda0dd
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center orchid rounded-lg " onclick="copyToClipboard('.orchid')">#da70d6
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center olive rounded-lg " onclick="copyToClipboard('.olive')">#808000
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center  indigo rounded-lg " onclick="copyToClipboard('.indigo')">#4b0082
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center  DarkMagenta rounded-lg " onclick="copyToClipboard('.DarkMagenta')">
+        #8B008B
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center  darkSlateBlue rounded-lg "
+        onclick="copyToClipboard('.darkSlateBlue')">#483D8B
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center  Amber rounded-lg " onclick="copyToClipboard('.Amber')">#FFBF00
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center  SandyBrown rounded-lg " onclick="copyToClipboard('.SandyBrown')">
+        #F4A460
+      </div>
+    </div>
+  </div>
+  <h3 class="p-2">SOCIAL MEDIA COLORS <span id="smclr"></span></h3>
+  <div class="container  p-5">
+    <div class="row">
+      <div class=" col-lg-2 p-3 m-2  text-center github rounded-lg " onclick="copyToClipboard('.github')">#171516
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center quora rounded-lg" onclick="copyToClipboard('.quora')">#a82400
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center reddit rounded-lg" onclick="copyToClipboard('.reddit')">#ff5700
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center stackoverflow rounded-lg" onclick="copyToClipboard('.stackoverflow')">
+        #f58233</div>
+      <div class=" col-lg-2 p-3 m-2  text-center youtube rounded-lg" onclick="copyToClipboard('.youtube')">#bb0000
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center linkedin rounded-lg" onclick="copyToClipboard('.linkedin')">
+        #007bb6</div>
+      <div class=" col-lg-2 p-3 m-2  text-center twitter rounded-lg " onclick="copyToClipboard('.twitter')">
+        #00aced</div>
+      <div class=" col-lg-2 p-3 m-2  text-center skype rounded-lg" onclick="copyToClipboard('.skype')">#fb8f3d
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center facebook rounded-lg" onclick=" copyToClipboard('.facebook')">#4267b2
+      </div>
+      <div class=" col-lg-2 p-3 m-2  text-center codePen  rounded-lg" onclick=" copyToClipboard('.codePen')">#212121
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    function copyToClipboard(copyEle) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(copyEle).text()).select();
+      document.execCommand("copy");
+      $temp.remove();
+
+      document.querySelector("#bclr").innerHTML = " Copied to Clipboard";
+      setInterval(change, 1000);
+      document.querySelector("#smclr").innerHTML = " Copied to Clipboard";
+      setInterval(changesocial, 2000);
+    }
+
+    function change() {
+      document.querySelector("#bclr").innerHTML = "";
+    }
+
+    function changesocial() {
+      document.querySelector("#smclr").innerHTML = "";
+    }
+  </script>
+</body>
+
+</html>
